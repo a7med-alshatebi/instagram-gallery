@@ -34,34 +34,44 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     <ModalContext.Provider value={{ post, openModal, closeModal }}>
       {children}
       {post && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
-          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-md w-full mx-4 p-4 relative animate-fade-in">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-pink-200 via-indigo-200 to-yellow-200 bg-opacity-60 backdrop-blur-xl animate-fade-in"
+          onClick={closeModal}
+        >
+          <div
+            className="bg-white/80 dark:bg-gray-900/80 rounded-3xl shadow-2xl max-w-md w-full mx-4 p-6 relative border-4 border-pink-200 backdrop-blur-2xl animate-fade-in-up"
+            onClick={e => e.stopPropagation()}
+          >
             <button
               onClick={closeModal}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-900 dark:hover:text-white text-xl"
+              className="absolute top-3 right-3 text-pink-400 hover:text-indigo-500 bg-white/70 rounded-full w-10 h-10 flex items-center justify-center text-2xl shadow-lg border-2 border-yellow-200 focus:outline-none transition-colors"
               aria-label="Close"
             >
               ×
             </button>
+            <div className="flex flex-col items-center">
               <Image
                 src={post.media_url ? post.media_url : (post.thumbnail_url ? post.thumbnail_url : "")}
                 alt={post.caption || "Instagram media"}
-                className="w-full max-h-80 object-contain rounded-xl mb-4"
+                className="w-full max-h-80 object-contain rounded-2xl mb-4 border-4 border-indigo-100 shadow-xl"
                 width={500}
                 height={500}
                 priority
               />
-            {post.caption && (
-              <div className="text-base text-gray-700 dark:text-gray-300 mb-2">{post.caption}</div>
-            )}
-            <a
-              href={post.permalink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-indigo-500 underline text-sm"
-            >
-              View on Instagram
-            </a>
+              {post.caption && (
+                <div className="text-base text-pink-700 bg-gradient-to-r from-indigo-50 via-pink-50 to-yellow-50 px-4 py-2 rounded-xl mb-3 shadow-md font-semibold backdrop-blur-md">
+                  {post.caption}
+                </div>
+              )}
+              <a
+                href={post.permalink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-gradient-to-r from-pink-400 via-indigo-400 to-yellow-300 text-white font-bold px-5 py-2 rounded-full shadow-lg hover:scale-105 transition-transform text-sm mt-2"
+              >
+                View on Instagram
+              </a>
+            </div>
           </div>
         </div>
       )}
