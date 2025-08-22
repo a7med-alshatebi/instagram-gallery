@@ -44,7 +44,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
           >
             <button
               onClick={closeModal}
-              className="absolute top-2 right-2 sm:top-3 sm:right-3 text-indigo-400 hover:text-pink-500 bg-white rounded-full w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-lg sm:text-xl shadow border border-gray-200 focus:outline-none transition-colors"
+              className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-gradient-to-tr from-pink-400 via-indigo-400 to-yellow-300 text-white hover:scale-110 rounded-full w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-lg sm:text-xl shadow-lg border-0 focus:outline-none transition-transform duration-200"
               aria-label="Close"
             >
               ×
@@ -67,7 +67,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
                 href={post.permalink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-indigo-500 underline text-xs sm:text-sm mt-2 hover:text-pink-500 transition-colors"
+                className="inline-block bg-gradient-to-tr from-pink-400 via-indigo-400 to-yellow-300 text-white font-semibold px-4 py-2 rounded-full shadow-md text-xs sm:text-sm mt-2 hover:scale-105 transition-transform duration-200"
               >
                 View on Instagram
               </a>
