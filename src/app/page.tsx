@@ -45,7 +45,7 @@ export default function Home() {
   }, []);
 
   return (
-  <div className="min-h-screen w-full font-sans flex flex-col items-center justify-center bg-gradient-to-br from-white via-indigo-50 to-pink-50">
+  <div className="min-h-screen w-full font-sans flex flex-col items-center justify-center bg-gradient-to-br from-white via-pink-100 to-yellow-100">
   <header className="flex flex-col items-center mt-8 mb-8 shadow-lg rounded-2xl px-4 py-4 bg-white/80 w-full max-w-2xl mx-auto">
       <span className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-indigo-400 via-pink-400 to-yellow-300 shadow-lg mb-2 border-2 border-white">
         <FiInstagram className="text-white text-2xl sm:text-3xl drop-shadow" />
