@@ -35,11 +35,11 @@ export function ModalProvider({ children }: { children: ReactNode }) {
       {children}
       {post && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-800 bg-opacity-80 backdrop-blur-sm px-2"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 backdrop-blur-sm px-2"
           onClick={closeModal}
         >
             <div
-              className="bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-800 rounded-2xl shadow-xl w-full max-w-xs sm:max-w-md mx-auto p-3 sm:p-6 relative border border-gray-800"
+              className="bg-white rounded-2xl shadow-xl w-full max-w-xs sm:max-w-md mx-auto p-3 sm:p-6 relative border border-gray-200"
             onClick={e => e.stopPropagation()}
           >
             <button
