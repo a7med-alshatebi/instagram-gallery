@@ -39,12 +39,12 @@ export function ModalProvider({ children }: { children: ReactNode }) {
           onClick={closeModal}
         >
           <div
-            className="bg-white rounded-2xl shadow-lg max-w-md w-full mx-4 p-5 relative border border-gray-200"
+            className="bg-gradient-to-br from-white via-indigo-50 to-pink-50 rounded-2xl shadow-xl max-w-md w-full mx-4 p-6 relative border border-gray-200"
             onClick={e => e.stopPropagation()}
           >
             <button
               onClick={closeModal}
-              className="absolute top-3 right-3 text-gray-400 hover:text-indigo-500 bg-white rounded-full w-8 h-8 flex items-center justify-center text-xl shadow border border-gray-200 focus:outline-none transition-colors"
+              className="absolute top-3 right-3 text-indigo-400 hover:text-pink-500 bg-white rounded-full w-8 h-8 flex items-center justify-center text-xl shadow border border-gray-200 focus:outline-none transition-colors"
               aria-label="Close"
             >
               ×
@@ -59,7 +59,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
                 loading="lazy"
               />
               {post.caption && (
-                <div className="text-base text-gray-700 px-3 py-2 rounded mb-2 font-semibold">
+                <div className="text-base font-semibold px-3 py-2 rounded mb-2 bg-gradient-to-r from-pink-100 via-indigo-100 to-yellow-100 bg-clip-text text-transparent">
                   {post.caption}
                 </div>
               )}
@@ -67,7 +67,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
                 href={post.permalink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-indigo-500 underline text-sm mt-2"
+                className="inline-block text-indigo-500 underline text-sm mt-2 hover:text-pink-500 transition-colors"
               >
                 View on Instagram
               </a>

@@ -45,12 +45,12 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen w-full font-sans flex flex-col items-center justify-center bg-white">
-      <header className="flex flex-col items-center mb-10">
+  <div className="min-h-screen w-full font-sans flex flex-col items-center justify-center bg-gradient-to-br from-white via-indigo-50 to-pink-50">
+      <header className="flex flex-col items-center mb-10 shadow-lg rounded-2xl px-8 py-6 bg-white/80">
         <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-tr from-indigo-400 via-pink-400 to-yellow-300 shadow-lg mb-2 border-2 border-white">
           <FiInstagram className="text-white text-3xl drop-shadow" />
         </span>
-        <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 mb-2">Insta Gallery</h1>
+  <h1 className="text-4xl font-extrabold tracking-tight mb-2 bg-gradient-to-r from-pink-400 via-indigo-400 to-yellow-300 bg-clip-text text-transparent">Insta Gallery</h1>
         <p className="text-base text-indigo-400 font-semibold">Your Instagram showcase</p>
       </header>
 
@@ -68,9 +68,11 @@ export default function Home() {
             {[...Array(8)].map((_, i) => (
               <div
                 key={i}
-                className="rounded-2xl bg-gray-100 shadow-md border border-gray-200 flex flex-col animate-pulse"
+                className="rounded-2xl bg-gradient-to-br from-gray-100 via-indigo-50 to-pink-50 shadow-md border border-gray-200 flex flex-col animate-pulse overflow-hidden relative"
               >
-                <div className="w-full h-64 bg-gray-200 rounded-t-2xl" />
+                <div className="w-full h-64 bg-gray-200 rounded-t-2xl relative overflow-hidden">
+                  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-gray-200 via-indigo-100 to-pink-100 opacity-60 animate-shimmer" />
+                </div>
                 <div className="p-4">
                   <div className="h-4 bg-gray-300 rounded w-3/4 mb-2" />
                   <div className="h-3 bg-gray-200 rounded w-1/2" />
@@ -87,7 +89,7 @@ export default function Home() {
                 key={item.id}
                 type="button"
                 onClick={() => openModal(item)}
-                className="group rounded-2xl overflow-hidden bg-white shadow-md hover:shadow-lg hover:scale-[1.03] transition-all border border-gray-200 flex flex-col focus:outline-none"
+                className="group rounded-2xl overflow-hidden bg-gradient-to-br from-white via-indigo-50 to-pink-50 shadow-md hover:shadow-xl hover:scale-[1.04] transition-all border border-gray-200 flex flex-col focus:outline-none"
               >
                   <Image
                     src={item.media_url ? item.media_url : (item.thumbnail_url ? item.thumbnail_url : "")}
@@ -98,7 +100,7 @@ export default function Home() {
                     loading="lazy"
                   />
                 {item.caption && (
-                  <div className="p-4 text-base text-gray-700 truncate font-semibold">
+                  <div className="p-4 text-base text-indigo-500 truncate font-semibold">
                     {item.caption}
                   </div>
                 )}
@@ -108,7 +110,7 @@ export default function Home() {
         )}
       </main>
 
-      <footer className="mt-16 text-sm text-gray-400 text-center">
+      <footer className="mt-16 text-sm text-gray-400 text-center shadow-lg rounded-xl px-8 py-4 bg-white/80">
         <span className="inline-block align-middle mr-1">Powered by</span>
         <a href="https://nextjs.org" className="underline hover:text-indigo-400">Next.js</a>
         <span className="mx-1">·</span>
