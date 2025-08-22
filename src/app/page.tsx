@@ -46,25 +46,25 @@ export default function Home() {
 
   return (
   <div className="min-h-screen w-full font-sans flex flex-col items-center justify-center bg-gradient-to-br from-white via-indigo-50 to-pink-50">
-      <header className="flex flex-col items-center mb-10 shadow-lg rounded-2xl px-8 py-6 bg-white/80">
-        <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-tr from-indigo-400 via-pink-400 to-yellow-300 shadow-lg mb-2 border-2 border-white">
-          <FiInstagram className="text-white text-3xl drop-shadow" />
-        </span>
-  <h1 className="text-4xl font-extrabold tracking-tight mb-2 bg-gradient-to-r from-pink-400 via-indigo-400 to-yellow-300 bg-clip-text text-transparent">Insta Gallery</h1>
-        <p className="text-base text-indigo-400 font-semibold">Your Instagram showcase</p>
-      </header>
+  <header className="flex flex-col items-center mt-8 mb-8 shadow-lg rounded-2xl px-4 py-4 bg-white/80 w-full max-w-2xl mx-auto">
+      <span className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-indigo-400 via-pink-400 to-yellow-300 shadow-lg mb-2 border-2 border-white">
+        <FiInstagram className="text-white text-2xl sm:text-3xl drop-shadow" />
+      </span>
+      <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight mb-2 bg-gradient-to-r from-pink-400 via-indigo-400 to-yellow-300 bg-clip-text text-transparent text-center">Insta Gallery</h1>
+      <p className="text-sm sm:text-base text-indigo-400 font-semibold text-center">Your Instagram showcase</p>
+    </header>
 
-      <button
-        aria-label="Refresh Gallery"
-        onClick={fetchMedia}
-        className="fixed bottom-8 right-8 z-50 bg-gradient-to-tr from-yellow-300 via-pink-400 to-indigo-400 text-white p-2 rounded-full shadow-2xl hover:scale-110 transition-transform focus:outline-none border-2 border-white animate-spin-slow"
-      >
-        <FiRefreshCw className="text-xl" />
-      </button>
+    <button
+      aria-label="Refresh Gallery"
+      onClick={fetchMedia}
+      className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 bg-gradient-to-tr from-yellow-300 via-pink-400 to-indigo-400 text-white p-2 sm:p-3 rounded-full shadow-2xl hover:scale-110 transition-transform focus:outline-none border-2 border-white animate-spin-slow"
+    >
+      <FiRefreshCw className="text-lg sm:text-xl" />
+    </button>
 
-  <main className="w-full">
+  <main className="w-full px-2 sm:px-0">
         {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 w-full max-w-2xl sm:max-w-4xl md:max-w-6xl mx-auto">
             {[...Array(8)].map((_, i) => (
               <div
                 key={i}
@@ -83,7 +83,7 @@ export default function Home() {
         ) : error ? (
           <div className="text-red-500 text-center py-10 text-lg font-semibold bg-white/80 rounded-2xl shadow-lg max-w-md mx-auto">{error}</div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 w-full max-w-2xl sm:max-w-4xl md:max-w-6xl mx-auto">
             {media.map((item) => (
               <button
                 key={item.id}
@@ -91,16 +91,16 @@ export default function Home() {
                 onClick={() => openModal(item)}
                 className="group rounded-2xl overflow-hidden bg-gradient-to-br from-white via-indigo-50 to-pink-50 shadow-md hover:shadow-xl hover:scale-[1.04] transition-all border border-gray-200 flex flex-col focus:outline-none"
               >
-                  <Image
-                    src={item.media_url ? item.media_url : (item.thumbnail_url ? item.thumbnail_url : "")}
-                    alt={item.caption || "Instagram media"}
-                    className="w-full h-64 object-cover group-hover:opacity-95 transition-opacity duration-200 rounded-t-2xl"
-                    width={500}
-                    height={500}
-                    loading="lazy"
-                  />
+                <Image
+                  src={item.media_url ? item.media_url : (item.thumbnail_url ? item.thumbnail_url : "")}
+                  alt={item.caption || "Instagram media"}
+                  className="w-full h-48 sm:h-64 object-cover group-hover:opacity-95 transition-opacity duration-200 rounded-t-2xl"
+                  width={500}
+                  height={500}
+                  loading="lazy"
+                />
                 {item.caption && (
-                  <div className="p-4 text-base text-indigo-500 truncate font-semibold">
+                  <div className="p-2 sm:p-4 text-sm sm:text-base text-indigo-500 truncate font-semibold">
                     {item.caption}
                   </div>
                 )}
@@ -110,7 +110,7 @@ export default function Home() {
         )}
       </main>
 
-      <footer className="mt-16 text-sm text-gray-400 text-center shadow-lg rounded-xl px-8 py-4 bg-white/80">
+  <footer className="mt-10 sm:mt-16 text-xs sm:text-sm text-gray-400 text-center shadow-lg rounded-xl px-4 sm:px-8 py-3 sm:py-4 bg-white/80 w-full max-w-2xl mx-auto">
         <span className="inline-block align-middle mr-1">Powered by</span>
         <a href="https://nextjs.org" className="underline hover:text-indigo-400">Next.js</a>
         <span className="mx-1">·</span>
