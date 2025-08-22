@@ -77,7 +77,7 @@ export default function Home() {
                 className="group rounded-3xl overflow-hidden bg-white/90 backdrop-blur-lg shadow-2xl hover:shadow-3xl hover:scale-[1.05] transition-all border border-gray-200 flex flex-col focus:outline-none hover:ring-4 hover:ring-indigo-200"
               >
                   <Image
-                    src={item.media_url}
+                    src={item.media_url ? item.media_url : (item.thumbnail_url ? item.thumbnail_url : "")}
                     alt={item.caption || "Instagram media"}
                     className="w-full h-72 object-cover group-hover:opacity-95 transition-opacity duration-200 rounded-t-3xl"
                     width={500}
