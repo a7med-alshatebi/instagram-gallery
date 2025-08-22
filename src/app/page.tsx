@@ -1,5 +1,10 @@
 
+"use client";
 import { useEffect, useState } from "react";
+// ...existing code...
+
+
+// ...existing code...
 
 type InstagramMedia = {
   id: string;
