@@ -80,7 +80,6 @@ export default function Home() {
                     src={item.media_url}
                     alt={item.caption || "Instagram media"}
                     className="w-full h-72 object-cover group-hover:opacity-95 transition-opacity duration-200 rounded-t-3xl"
-                    loading="lazy"
                     width={500}
                     height={500}
                     priority
