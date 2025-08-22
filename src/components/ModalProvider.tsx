@@ -44,8 +44,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
           >
             <button
               onClick={closeModal}
-              className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-white text-indigo-500 hover:text-pink-500 border-2 border-transparent rounded-full w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-lg sm:text-xl shadow-md focus:outline-none transition-colors duration-200"
-              style={{ borderImage: 'linear-gradient(45deg, #ec4899, #6366f1, #fbbf24) 1' }}
+              className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-white text-indigo-500 hover:text-pink-500 rounded-full w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-lg sm:text-xl shadow-md focus:outline-none transition-colors duration-200"
               aria-label="Close"
             >
               ×
