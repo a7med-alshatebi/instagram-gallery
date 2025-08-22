@@ -40,27 +40,29 @@ export function ModalProvider({ children }: { children: ReactNode }) {
           onClick={closeModal}
         >
             <div
-              className="bg-white rounded-2xl shadow-xl w-full max-w-xs sm:max-w-lg md:max-w-2xl mx-auto p-3 sm:p-6 md:p-10 relative border border-gray-200"
+              className="bg-white rounded-2xl shadow-xl w-full max-w-[98vw] sm:max-w-lg md:max-w-2xl mx-auto p-2 sm:p-6 md:p-10 relative border border-gray-200"
             onClick={e => e.stopPropagation()}
           >
             <button
               onClick={closeModal}
-              className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-white text-indigo-500 hover:text-pink-500 rounded-full w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-lg sm:text-xl shadow-md focus:outline-none transition-colors duration-200"
+              className="absolute top-2 right-2 bg-white text-indigo-500 hover:text-pink-500 rounded-full w-8 h-8 flex items-center justify-center text-xl shadow focus:outline-none transition-colors duration-200 border border-gray-200"
               aria-label="Close"
             >
-              ×
+              <span className="block leading-none text-2xl">×</span>
             </button>
-            <div className="flex flex-col items-center">
-              <Image
-                src={post.media_url ? post.media_url : (post.thumbnail_url ? post.thumbnail_url : "")}
-                alt={post.caption || "Instagram media"}
-                className="w-full max-h-48 sm:max-h-72 object-contain rounded-xl mb-2 sm:mb-3 border border-gray-100"
-                width={500}
-                height={500}
-                loading="lazy"
-              />
+            <div className="flex flex-col items-center w-full">
+              <div className="w-full flex justify-center">
+                <Image
+                  src={post.media_url ? post.media_url : (post.thumbnail_url ? post.thumbnail_url : "")}
+                  alt={post.caption || "Instagram media"}
+                  className="w-full max-w-xs sm:max-w-md md:max-w-lg max-h-48 sm:max-h-72 object-contain rounded-xl mb-2 sm:mb-3 border border-gray-100"
+                  width={500}
+                  height={500}
+                  loading="lazy"
+                />
+              </div>
               {post.caption && (
-                <div className="text-sm sm:text-base font-semibold px-2 sm:px-3 py-1 sm:py-2 rounded mb-2 bg-gradient-to-r from-pink-100 via-indigo-100 to-yellow-100 bg-clip-text text-transparent text-center">
+                <div className="text-sm sm:text-base font-semibold px-2 sm:px-3 py-1 sm:py-2 rounded mb-2 bg-gradient-to-r from-pink-100 via-indigo-100 to-yellow-100 bg-clip-text text-transparent text-center w-full">
                   {post.caption}
                 </div>
               )}
@@ -68,7 +70,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
                 href={post.permalink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-4 py-1 rounded-full bg-white shadow text-xs sm:text-sm mt-2 font-semibold bg-gradient-to-r from-pink-400 via-indigo-400 to-yellow-300 bg-clip-text text-transparent hover:scale-105 transition-transform duration-200 border border-gray-200"
+                className="inline-block px-4 py-1 rounded-full bg-white shadow text-xs sm:text-sm mt-2 font-semibold bg-gradient-to-r from-pink-400 via-indigo-400 to-yellow-300 bg-clip-text text-transparent hover:scale-105 transition-transform duration-200 border border-gray-200 w-full text-center"
               >
                 View on Instagram
               </a>
