@@ -35,7 +35,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
       {children}
       {post && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-white via-pink-100 to-yellow-100 bg-opacity-90 backdrop-blur-sm px-2"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm px-2"
           onClick={closeModal}
         >
           <div
