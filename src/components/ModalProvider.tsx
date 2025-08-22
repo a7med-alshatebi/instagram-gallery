@@ -40,7 +40,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
           onClick={closeModal}
         >
             <div
-              className="bg-white rounded-2xl shadow-xl w-full max-w-xs sm:max-w-md mx-auto p-3 sm:p-6 relative border border-gray-200"
+              className="bg-white rounded-2xl shadow-xl w-full max-w-xs sm:max-w-lg md:max-w-2xl mx-auto p-3 sm:p-6 md:p-10 relative border border-gray-200"
             onClick={e => e.stopPropagation()}
           >
             <button
