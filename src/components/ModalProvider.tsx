@@ -5,7 +5,8 @@ import Image from "next/image";
 
 interface InstagramPost {
   id: string;
-  media_url: string;
+  media_url?: string;
+  thumbnail_url?: string;
   caption?: string;
   permalink: string;
 }
@@ -43,7 +44,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
               ×
             </button>
               <Image
-                src={post.media_url}
+                src={post.media_url ? post.media_url : (post.thumbnail_url ? post.thumbnail_url : "")}
                 alt={post.caption || "Instagram media"}
                 className="w-full max-h-80 object-contain rounded-xl mb-4"
                 width={500}
