@@ -24,6 +24,7 @@ export default function Home() {
     fetch("/api/instagram")
       .then((res) => res.json())
       .then((data) => {
+        console.log("Instagram API response:", data);
         if (data.error) {
           setError(data.error);
         } else {

@@ -13,7 +13,8 @@ export async function GET(req: NextRequest) {
     if (!res.ok) {
       return new Response(JSON.stringify({ error: data.error?.message || 'Failed to fetch Instagram media' }), { status: res.status });
     }
-    return new Response(JSON.stringify(data), { status: 200 });
+    // Always return { data: [...] } for frontend compatibility
+    return new Response(JSON.stringify({ data: data.data || [] }), { status: 200 });
   } catch {
     return new Response(JSON.stringify({ error: 'Server error' }), { status: 500 });
   }
