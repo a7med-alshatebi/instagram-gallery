@@ -40,6 +40,8 @@ export default function Home() {
 
   useEffect(() => {
     fetchMedia();
+    const interval = setInterval(fetchMedia, 60000); // Refresh every 60 seconds
+    return () => clearInterval(interval);
   }, []);
 
   return (
