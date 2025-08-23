@@ -76,7 +76,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
                 href={post.permalink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-2 rounded-full shadow-lg mt-3 font-bold text-gray-700 text-sm sm:text-base bg-gray-200 hover:bg-gray-300 transition-all duration-200 border border-gray-300 w-full text-center backdrop-blur-sm"
+                className="inline-flex items-center justify-center gap-2 px-6 py-2 rounded-full shadow-lg mt-3 font-bold text-gray-100 text-sm sm:text-base bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 hover:from-gray-700 hover:via-gray-600 hover:to-gray-800 transition-all duration-200 border border-gray-700 w-full text-center backdrop-blur-sm"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 3h9A2.5 2.5 0 0 1 19 5.5v13A2.5 2.5 0 0 1 16.5 21h-9A2.5 2.5 0 0 1 5 18.5v-13A2.5 2.5 0 0 1 7.5 3zm0 0V2.25m9 0V3m-9 0h9m-9 0v.75m9-.75v.75M12 8.25a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5zm0 0v.75m0 6v.75m-3.75-3.75h-.75m7.5 0h.75" />

@@ -87,30 +87,30 @@ export default function Home() {
         ) : error ? (
           <div className="text-rose-400 text-center py-10 text-lg font-semibold bg-gray-800/80 rounded-2xl shadow-lg max-w-md mx-auto">{error}</div>
         ) : (
-          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8 w-full max-w-2xl sm:max-w-4xl md:max-w-6xl mx-auto justify-items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 w-full max-w-xl sm:max-w-4xl md:max-w-6xl mx-auto justify-items-center">
             {media.map((item) => (
               <button
                 key={item.id}
                 type="button"
                 onClick={() => openModal(item)}
-                className="group flex flex-col focus:outline-none rounded-2xl sm:rounded-3xl overflow-hidden border-0 shadow-lg bg-gray-800 transition-transform duration-200 hover:scale-[1.04] hover:shadow-2xl relative max-w-[90vw] sm:max-w-full"
+                className="group flex flex-col focus:outline-none rounded-xl sm:rounded-2xl overflow-hidden border border-gray-700 shadow-md bg-gray-800 transition-transform duration-200 hover:scale-[1.03] hover:shadow-lg relative max-w-[44vw] sm:max-w-full"
               >
-                <div className="relative w-full aspect-[4/5] sm:aspect-square">
+                <div className="relative w-full aspect-[3/4] sm:aspect-square">
                   <Image
                     src={item.media_url ? item.media_url : (item.thumbnail_url ? item.thumbnail_url : "")}
                     alt={item.caption || "Instagram media"}
-                    className="w-full h-full object-cover rounded-2xl sm:rounded-3xl border-0"
-                    width={400}
-                    height={500}
+                    className="w-full h-full object-cover rounded-xl sm:rounded-2xl border-0"
+                    width={300}
+                    height={400}
                     loading="lazy"
                   />
-                  <div className="absolute bottom-2 right-2 bg-gray-900/80 rounded-full px-2 py-1 text-xs font-bold text-gray-200 shadow-md backdrop-blur-sm border border-gray-700">
+                  <div className="absolute bottom-2 right-2 bg-gray-900/80 rounded-full px-2 py-1 text-xs font-bold text-gray-200 shadow backdrop-blur-sm border border-gray-700">
                     <span className="hidden sm:inline">Tap to view</span>
                     <span className="sm:hidden">👆</span>
                   </div>
                 </div>
                 {item.caption && (
-                  <div className="px-2 py-1 text-xs sm:text-base text-gray-300 font-semibold truncate bg-gray-900 rounded-b-2xl sm:rounded-b-3xl border-t border-gray-700 mt-1">
+                  <div className="px-2 py-1 text-xs sm:text-base text-gray-300 font-semibold truncate bg-gray-900 rounded-b-xl sm:rounded-b-2xl border-t border-gray-700 mt-1">
                     {item.caption}
                   </div>
                 )}
