@@ -2,6 +2,7 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 import Image from "next/image";
 import ImageWithSpinner from "./ImageWithSpinner";
+import FadeInUp from "./FadeInUp";
 
 
 interface InstagramPost {
@@ -36,53 +37,54 @@ export function ModalProvider({ children }: { children: ReactNode }) {
       {children}
       {post && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center px-2 backdrop-blur-sm transition-opacity duration-300 opacity-100 animate-fadeIn"
+          className="fixed inset-0 z-50 flex items-center justify-center px-2 backdrop-blur-sm"
           style={{ background: "rgba(30,30,30,0.85)" }}
           onClick={closeModal}
         >
+          <FadeInUp>
             <div
-              className="bg-gray-300 rounded-3xl shadow-2xl w-full max-w-[98vw] sm:max-w-xl md:max-w-2xl mx-auto p-2 sm:p-8 md:p-12 relative border border-gray-500 transition-transform duration-300 scale-100 animate-modalPop"
-            onClick={e => e.stopPropagation()}
-          >
-// Add fadeIn and modalPop keyframes to global CSS if not present
-            <button
-              onClick={closeModal}
-              className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-gray-800 text-gray-100 hover:bg-gray-700 hover:text-white rounded-full w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-lg sm:text-xl shadow-lg focus:outline-none transition-colors duration-200 border border-gray-700"
-              aria-label="Close"
+              className="bg-gray-300 rounded-3xl shadow-2xl w-full max-w-[98vw] sm:max-w-xl md:max-w-2xl mx-auto p-2 sm:p-8 md:p-12 relative border border-gray-500"
+              onClick={e => e.stopPropagation()}
             >
-              <span className="block leading-none">×</span>
-            </button>
-            <div className="flex flex-col items-center w-full">
-              <div className="w-full flex justify-center">
-                <div className="relative w-full aspect-square sm:aspect-video bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
-                  <ImageWithSpinner
-                    src={post.media_url ? post.media_url : (post.thumbnail_url ? post.thumbnail_url : "")}
-                    alt={post.caption || "Instagram media"}
-                  />
-                  <div className="absolute top-2 left-2 bg-gray-200/80 rounded-full px-3 py-1 text-xs font-bold text-gray-700 shadow-md backdrop-blur-sm border border-gray-300">
-                    <span className="hidden sm:inline">Instagram Post</span>
-                    <span className="sm:hidden">📸</span>
+              <button
+                onClick={closeModal}
+                className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-gray-800 text-gray-100 hover:bg-gray-700 hover:text-white rounded-full w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-lg sm:text-xl shadow-lg focus:outline-none transition-colors duration-200 border border-gray-700"
+                aria-label="Close"
+              >
+                <span className="block leading-none">×</span>
+              </button>
+              <div className="flex flex-col items-center w-full">
+                <div className="w-full flex justify-center">
+                  <div className="relative w-full aspect-square sm:aspect-video bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+                    <ImageWithSpinner
+                      src={post.media_url ? post.media_url : (post.thumbnail_url ? post.thumbnail_url : "")}
+                      alt={post.caption || "Instagram media"}
+                    />
+                    <div className="absolute top-2 left-2 bg-gray-200/80 rounded-full px-3 py-1 text-xs font-bold text-gray-700 shadow-md backdrop-blur-sm border border-gray-300">
+                      <span className="hidden sm:inline">Instagram Post</span>
+                      <span className="sm:hidden">📸</span>
+                    </div>
                   </div>
                 </div>
+                {post.caption && (
+                  <div className="text-sm sm:text-base font-semibold px-2 sm:px-4 py-2 sm:py-3 rounded-xl mb-2 text-gray-700 text-center w-full">
+                    {post.caption}
+                  </div>
+                )}
+                <a
+                  href={post.permalink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-2 rounded-full shadow-lg mt-3 font-bold text-gray-100 text-sm sm:text-base bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 hover:from-gray-700 hover:via-gray-600 hover:to-gray-800 transition-all duration-200 border border-gray-700 w-full text-center backdrop-blur-sm"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 3h9A2.5 2.5 0 0 1 19 5.5v13A2.5 2.5 0 0 1 16.5 21h-9A2.5 2.5 0 0 1 5 18.5v-13A2.5 2.5 0 0 1 7.5 3zm0 0V2.25m9 0V3m-9 0h9m-9 0v.75m9-.75v.75M12 8.25a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5zm0 0v.75m0 6v.75m-3.75-3.75h-.75m7.5 0h.75" />
+                  </svg>
+                  View on Instagram
+                </a>
               </div>
-              {post.caption && (
-                <div className="text-sm sm:text-base font-semibold px-2 sm:px-4 py-2 sm:py-3 rounded-xl mb-2 text-gray-700 text-center w-full">
-                  {post.caption}
-                </div>
-              )}
-              <a
-                href={post.permalink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-2 rounded-full shadow-lg mt-3 font-bold text-gray-100 text-sm sm:text-base bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 hover:from-gray-700 hover:via-gray-600 hover:to-gray-800 transition-all duration-200 border border-gray-700 w-full text-center backdrop-blur-sm"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 3h9A2.5 2.5 0 0 1 19 5.5v13A2.5 2.5 0 0 1 16.5 21h-9A2.5 2.5 0 0 1 5 18.5v-13A2.5 2.5 0 0 1 7.5 3zm0 0V2.25m9 0V3m-9 0h9m-9 0v.75m9-.75v.75M12 8.25a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5zm0 0v.75m0 6v.75m-3.75-3.75h-.75m7.5 0h.75" />
-                </svg>
-                View on Instagram
-              </a>
             </div>
-          </div>
+          </FadeInUp>
         </div>
       )}
     </ModalContext.Provider>
