@@ -45,7 +45,7 @@ export default function Home() {
   }, []);
 
   return (
-  <div className="min-h-screen w-full font-sans flex flex-col items-center justify-center bg-gradient-to-br from-white via-pink-100 to-yellow-100">
+  <div className="min-h-screen w-full font-sans flex flex-col items-center justify-center bg-gradient-to-br from-gray-100 via-pink-200 to-yellow-200">
   <header className="flex flex-col items-center mt-8 mb-10 shadow-none px-6 py-8 w-full max-w-3xl mx-auto border-0 relative bg-transparent">
     <span className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-pink-400 via-indigo-400 to-yellow-300 shadow-xl mb-4 border-0 animate-spin-slow">
       <FiInstagram className="text-white text-3xl sm:text-4xl drop-shadow-lg" />
@@ -72,7 +72,7 @@ export default function Home() {
             {[...Array(8)].map((_, i) => (
               <div
                 key={i}
-                className="rounded-2xl bg-gradient-to-br from-gray-100 via-indigo-50 to-pink-50 shadow-md border border-gray-200 flex flex-col animate-pulse overflow-hidden relative"
+                className="rounded-2xl bg-gradient-to-br from-gray-300 via-indigo-100 to-pink-100 shadow-md border border-gray-300 flex flex-col animate-pulse overflow-hidden relative"
               >
                 <div className="w-full h-64 bg-gray-200 rounded-t-2xl relative overflow-hidden">
                   <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-gray-200 via-indigo-100 to-pink-100 opacity-60 animate-shimmer" />
@@ -85,7 +85,7 @@ export default function Home() {
             ))}
           </div>
         ) : error ? (
-          <div className="text-red-500 text-center py-10 text-lg font-semibold bg-white/80 rounded-2xl shadow-lg max-w-md mx-auto">{error}</div>
+          <div className="text-red-500 text-center py-10 text-lg font-semibold bg-gray-200/80 rounded-2xl shadow-lg max-w-md mx-auto">{error}</div>
         ) : (
           <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8 w-full max-w-2xl sm:max-w-4xl md:max-w-6xl mx-auto justify-items-center">
             {media.map((item) => (
@@ -93,7 +93,7 @@ export default function Home() {
                 key={item.id}
                 type="button"
                 onClick={() => openModal(item)}
-                className="group flex flex-col focus:outline-none rounded-2xl sm:rounded-3xl overflow-hidden border-0 shadow-lg bg-gradient-to-br from-pink-50 via-yellow-50 to-indigo-50 transition-transform duration-200 hover:scale-[1.04] hover:shadow-2xl relative max-w-[90vw] sm:max-w-full"
+                className="group flex flex-col focus:outline-none rounded-2xl sm:rounded-3xl overflow-hidden border-0 shadow-lg bg-gradient-to-br from-gray-200 via-pink-300 to-indigo-200 transition-transform duration-200 hover:scale-[1.04] hover:shadow-2xl relative max-w-[90vw] sm:max-w-full"
               >
                 <div className="relative w-full aspect-[4/5] sm:aspect-square">
                   <Image
@@ -110,7 +110,7 @@ export default function Home() {
                   </div>
                 </div>
                 {item.caption && (
-                  <div className="px-2 py-1 text-xs sm:text-base text-indigo-500 font-semibold truncate bg-gradient-to-r from-pink-100 via-indigo-100 to-yellow-100 rounded-b-2xl sm:rounded-b-3xl border-t border-gray-100 mt-1">
+                  <div className="px-2 py-1 text-xs sm:text-base text-indigo-500 font-semibold truncate bg-gradient-to-r from-pink-200 via-indigo-200 to-yellow-200 rounded-b-2xl sm:rounded-b-3xl border-t border-gray-200 mt-1">
                     {item.caption}
                   </div>
                 )}
@@ -120,7 +120,7 @@ export default function Home() {
         )}
       </main>
 
-  <footer className="mt-10 sm:mt-16 text-xs sm:text-sm text-gray-400 text-center shadow-lg rounded-xl px-4 sm:px-8 py-3 sm:py-4 bg-white/80 w-full max-w-2xl mx-auto">
+  <footer className="mt-10 sm:mt-16 text-xs sm:text-sm text-gray-500 text-center shadow-lg rounded-xl px-4 sm:px-8 py-3 sm:py-4 bg-gray-200/80 w-full max-w-2xl mx-auto">
         <span className="inline-block align-middle mr-1">Powered by</span>
         <a href="https://nextjs.org" className="underline hover:text-indigo-400">Next.js</a>
         <span className="mx-1">·</span>

@@ -36,11 +36,11 @@ export function ModalProvider({ children }: { children: ReactNode }) {
       {post && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center px-2 backdrop-blur-sm"
-          style={{ background: "rgba(0,0,0,0.05)" }}
+          style={{ background: "rgba(40,40,40,0.10)" }}
           onClick={closeModal}
         >
             <div
-              className="bg-gradient-to-br from-pink-50 via-yellow-50 to-indigo-100 rounded-3xl shadow-2xl w-full max-w-[98vw] sm:max-w-xl md:max-w-2xl mx-auto p-2 sm:p-8 md:p-12 relative border-0"
+              className="bg-gradient-to-br from-gray-200 via-pink-300 to-indigo-200 rounded-3xl shadow-2xl w-full max-w-[98vw] sm:max-w-xl md:max-w-2xl mx-auto p-2 sm:p-8 md:p-12 relative border-0"
             onClick={e => e.stopPropagation()}
           >
             <button
@@ -52,7 +52,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
             </button>
             <div className="flex flex-col items-center w-full">
               <div className="w-full flex justify-center">
-                <div className="relative w-full aspect-square sm:aspect-video bg-white rounded-2xl shadow-lg overflow-hidden border-0">
+                <div className="relative w-full aspect-square sm:aspect-video bg-gray-100 rounded-2xl shadow-lg overflow-hidden border-0">
                   <Image
                     src={post.media_url ? post.media_url : (post.thumbnail_url ? post.thumbnail_url : "")}
                     alt={post.caption || "Instagram media"}
@@ -61,14 +61,14 @@ export function ModalProvider({ children }: { children: ReactNode }) {
                     height={500}
                     loading="lazy"
                   />
-                  <div className="absolute top-2 left-2 bg-white/80 rounded-full px-3 py-1 text-xs font-bold text-indigo-500 shadow-md backdrop-blur-sm border border-indigo-100">
+                  <div className="absolute top-2 left-2 bg-gray-200/80 rounded-full px-3 py-1 text-xs font-bold text-indigo-600 shadow-md backdrop-blur-sm border border-indigo-200">
                     <span className="hidden sm:inline">Instagram Post</span>
                     <span className="sm:hidden">📸</span>
                   </div>
                 </div>
               </div>
               {post.caption && (
-                <div className="text-sm sm:text-base font-semibold px-2 sm:px-4 py-2 sm:py-3 rounded-xl mb-2 bg-gradient-to-r from-pink-100 via-indigo-100 to-yellow-100 bg-clip-text text-transparent text-center w-full">
+                <div className="text-sm sm:text-base font-semibold px-2 sm:px-4 py-2 sm:py-3 rounded-xl mb-2 bg-gradient-to-r from-pink-200 via-indigo-200 to-yellow-200 bg-clip-text text-transparent text-center w-full">
                   {post.caption}
                 </div>
               )}
@@ -76,7 +76,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
                 href={post.permalink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-2 rounded-full shadow-lg mt-3 font-bold text-white text-sm sm:text-base bg-gradient-to-r from-pink-500 via-indigo-500 to-yellow-400 hover:from-pink-400 hover:via-indigo-400 hover:to-yellow-300 transition-all duration-200 border-0 w-full text-center backdrop-blur-sm"
+                className="inline-flex items-center justify-center gap-2 px-6 py-2 rounded-full shadow-lg mt-3 font-bold text-white text-sm sm:text-base bg-gradient-to-r from-pink-700 via-indigo-700 to-yellow-500 hover:from-pink-600 hover:via-indigo-600 hover:to-yellow-400 transition-all duration-200 border-0 w-full text-center backdrop-blur-sm"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 3h9A2.5 2.5 0 0 1 19 5.5v13A2.5 2.5 0 0 1 16.5 21h-9A2.5 2.5 0 0 1 5 18.5v-13A2.5 2.5 0 0 1 7.5 3zm0 0V2.25m9 0V3m-9 0h9m-9 0v.75m9-.75v.75M12 8.25a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5zm0 0v.75m0 6v.75m-3.75-3.75h-.75m7.5 0h.75" />
