@@ -1,3 +1,25 @@
+// Spinner + image loader component
+function ImageWithSpinner({ src, alt }: { src: string; alt: string }) {
+  const [loading, setLoading] = useState(true);
+  return (
+    <div className="w-full h-full flex items-center justify-center">
+      {loading && (
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <span className="w-10 h-10 border-4 border-gray-300 border-t-gray-500 rounded-full animate-spin"></span>
+        </div>
+      )}
+      <Image
+        src={src}
+        alt={alt}
+        className={`w-full h-full object-cover rounded-2xl border-0 ${loading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
+        width={500}
+        height={500}
+        loading="lazy"
+        onLoad={() => setLoading(false)}
+      />
+    </div>
+  );
+}
 "use client";
 import { createContext, useContext, useState, ReactNode } from "react";
 import Image from "next/image";
@@ -53,13 +75,10 @@ export function ModalProvider({ children }: { children: ReactNode }) {
             <div className="flex flex-col items-center w-full">
               <div className="w-full flex justify-center">
                 <div className="relative w-full aspect-square sm:aspect-video bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
-                  <Image
+                  {/* Spinner while image loads */}
+                  <ImageWithSpinner
                     src={post.media_url ? post.media_url : (post.thumbnail_url ? post.thumbnail_url : "")}
                     alt={post.caption || "Instagram media"}
-                    className="w-full h-full object-cover rounded-2xl border-0"
-                    width={500}
-                    height={500}
-                    loading="lazy"
                   />
                   <div className="absolute top-2 left-2 bg-gray-200/80 rounded-full px-3 py-1 text-xs font-bold text-gray-700 shadow-md backdrop-blur-sm border border-gray-300">
                     <span className="hidden sm:inline">Instagram Post</span>
