@@ -46,7 +46,7 @@ export default function Home() {
 
   return (
   <div className="min-h-screen w-full font-sans flex flex-col items-center justify-center bg-gradient-to-br from-white via-pink-100 to-yellow-100">
-  <header className="flex flex-col items-center mt-8 mb-10 shadow-2xl px-6 py-8 bg-white w-full max-w-3xl mx-auto border-0 relative">
+  <header className="flex flex-col items-center mt-8 mb-10 shadow-2xl px-6 py-8 w-full max-w-3xl mx-auto border-0 relative">
     <span className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-pink-400 via-indigo-400 to-yellow-300 shadow-xl mb-4 border-0 animate-spin-slow">
       <FiInstagram className="text-white text-3xl sm:text-4xl drop-shadow-lg" />
     </span>
