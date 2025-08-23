@@ -56,9 +56,6 @@ export default function Home() {
     <p className="text-base sm:text-lg font-semibold text-center bg-gradient-to-r from-indigo-400 via-pink-400 to-yellow-400 bg-clip-text text-transparent mb-2 drop-shadow">
       Discover &amp; share your Instagram moments in style
     </p>
-    <div className="absolute top-4 right-4 hidden sm:block">
-      <span className="px-4 py-1 rounded-full bg-white/70 text-xs font-bold text-pink-500 shadow border border-pink-100">Modern UI</span>
-    </div>
   </header>
 
     <button
@@ -90,30 +87,30 @@ export default function Home() {
         ) : error ? (
           <div className="text-red-500 text-center py-10 text-lg font-semibold bg-white/80 rounded-2xl shadow-lg max-w-md mx-auto">{error}</div>
         ) : (
-          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 w-full max-w-2xl sm:max-w-4xl md:max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8 w-full max-w-2xl sm:max-w-4xl md:max-w-6xl mx-auto">
             {media.map((item) => (
               <button
                 key={item.id}
                 type="button"
                 onClick={() => openModal(item)}
-                className="group flex flex-col focus:outline-none rounded-3xl overflow-hidden border-0 shadow-lg bg-gradient-to-br from-pink-50 via-yellow-50 to-indigo-50 transition-transform duration-200 hover:scale-[1.04] hover:shadow-2xl relative"
+                className="group flex flex-col focus:outline-none rounded-2xl sm:rounded-3xl overflow-hidden border-0 shadow-lg bg-gradient-to-br from-pink-50 via-yellow-50 to-indigo-50 transition-transform duration-200 hover:scale-[1.04] hover:shadow-2xl relative max-w-[90vw] sm:max-w-full"
               >
-                <div className="relative w-full aspect-square sm:aspect-auto">
+                <div className="relative w-full aspect-[4/5] sm:aspect-square">
                   <Image
                     src={item.media_url ? item.media_url : (item.thumbnail_url ? item.thumbnail_url : "")}
                     alt={item.caption || "Instagram media"}
-                    className="w-full h-full object-cover rounded-3xl border-0"
-                    width={500}
+                    className="w-full h-full object-cover rounded-2xl sm:rounded-3xl border-0"
+                    width={400}
                     height={500}
                     loading="lazy"
                   />
-                  <div className="absolute bottom-2 right-2 bg-white/80 rounded-full px-3 py-1 text-xs font-bold text-pink-500 shadow-md backdrop-blur-sm border border-pink-100">
+                  <div className="absolute bottom-2 right-2 bg-white/80 rounded-full px-2 py-1 text-xs font-bold text-pink-500 shadow-md backdrop-blur-sm border border-pink-100">
                     <span className="hidden sm:inline">Tap to view</span>
                     <span className="sm:hidden">👆</span>
                   </div>
                 </div>
                 {item.caption && (
-                  <div className="px-3 py-2 text-xs sm:text-base text-indigo-500 font-semibold truncate bg-gradient-to-r from-pink-100 via-indigo-100 to-yellow-100 rounded-b-3xl border-t border-gray-100 mt-1">
+                  <div className="px-2 py-1 text-xs sm:text-base text-indigo-500 font-semibold truncate bg-gradient-to-r from-pink-100 via-indigo-100 to-yellow-100 rounded-b-2xl sm:rounded-b-3xl border-t border-gray-100 mt-1">
                     {item.caption}
                   </div>
                 )}
