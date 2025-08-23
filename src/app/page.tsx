@@ -69,16 +69,16 @@ export default function Home() {
 
   <main className="w-full px-2 sm:px-0">
         {loading ? (
-          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 w-full max-w-2xl sm:max-w-4xl md:max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 w-full max-w-xl sm:max-w-4xl md:max-w-6xl mx-auto justify-items-center">
             {[...Array(8)].map((_, i) => (
               <div
                 key={i}
-                className="rounded-2xl bg-gray-800 shadow-md border border-gray-700 flex flex-col animate-pulse overflow-hidden relative"
+                className="rounded-2xl bg-gray-800 shadow-md border border-gray-700 flex flex-col animate-pulse overflow-hidden relative w-full"
               >
-                <div className="w-full h-64 bg-gray-200 rounded-t-2xl relative overflow-hidden">
-                  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-gray-200 via-indigo-100 to-pink-100 opacity-60 animate-shimmer" />
+                <div className="relative w-full h-64 sm:h-auto aspect-[4/5] sm:aspect-square bg-gray-200 rounded-2xl">
+                  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 opacity-60 animate-shimmer" />
                 </div>
-                <div className="p-4">
+                <div className="px-2 py-1">
                   <div className="h-4 bg-gray-300 rounded w-3/4 mb-2" />
                   <div className="h-3 bg-gray-200 rounded w-1/2" />
                 </div>
