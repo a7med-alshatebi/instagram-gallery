@@ -89,18 +89,24 @@ export default function Home() {
                 key={item.id}
                 type="button"
                 onClick={() => openModal(item)}
-                className="group rounded-2xl overflow-hidden bg-gradient-to-br from-white via-indigo-50 to-pink-50 shadow-md hover:shadow-xl hover:scale-[1.04] transition-all border border-gray-200 flex flex-col focus:outline-none"
+                className="group flex flex-col focus:outline-none rounded-3xl overflow-hidden border-0 shadow-lg bg-gradient-to-br from-pink-50 via-yellow-50 to-indigo-50 transition-transform duration-200 hover:scale-[1.04] hover:shadow-2xl relative"
               >
-                <Image
-                  src={item.media_url ? item.media_url : (item.thumbnail_url ? item.thumbnail_url : "")}
-                  alt={item.caption || "Instagram media"}
-                  className="w-full h-48 sm:h-64 object-cover group-hover:opacity-95 transition-opacity duration-200 rounded-t-2xl"
-                  width={500}
-                  height={500}
-                  loading="lazy"
-                />
+                <div className="relative w-full aspect-square sm:aspect-auto">
+                  <Image
+                    src={item.media_url ? item.media_url : (item.thumbnail_url ? item.thumbnail_url : "")}
+                    alt={item.caption || "Instagram media"}
+                    className="w-full h-full object-cover rounded-3xl border-0"
+                    width={500}
+                    height={500}
+                    loading="lazy"
+                  />
+                  <div className="absolute bottom-2 right-2 bg-white/80 rounded-full px-3 py-1 text-xs font-bold text-pink-500 shadow-md backdrop-blur-sm border border-pink-100">
+                    <span className="hidden sm:inline">Tap to view</span>
+                    <span className="sm:hidden">👆</span>
+                  </div>
+                </div>
                 {item.caption && (
-                  <div className="p-2 sm:p-4 text-sm sm:text-base text-indigo-500 truncate font-semibold">
+                  <div className="px-3 py-2 text-xs sm:text-base text-indigo-500 font-semibold truncate bg-gradient-to-r from-pink-100 via-indigo-100 to-yellow-100 rounded-b-3xl border-t border-gray-100 mt-1">
                     {item.caption}
                   </div>
                 )}
