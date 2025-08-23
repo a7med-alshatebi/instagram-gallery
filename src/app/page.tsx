@@ -45,8 +45,8 @@ export default function Home() {
   }, []);
 
   return (
-  <>
-    <header className="flex flex-col items-center mt-8 mb-10 shadow-2xl px-6 py-8 bg-white w-full max-w-3xl mx-auto border-0 relative">
+  <div className="min-h-screen w-full font-sans flex flex-col items-center justify-center bg-gradient-to-br from-white via-pink-100 to-yellow-100">
+  <header className="flex flex-col items-center mt-8 mb-10 shadow-2xl px-6 py-8 bg-white w-full max-w-3xl mx-auto border-0 relative">
     <span className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-pink-400 via-indigo-400 to-yellow-300 shadow-xl mb-4 border-0 animate-spin-slow">
       <FiInstagram className="text-white text-3xl sm:text-4xl drop-shadow-lg" />
     </span>
@@ -68,7 +68,8 @@ export default function Home() {
     >
       <FiRefreshCw className="text-lg sm:text-xl" />
     </button>
-    <main className="w-full px-2 sm:px-0">
+
+  <main className="w-full px-2 sm:px-0">
         {loading ? (
           <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 w-full max-w-2xl sm:max-w-4xl md:max-w-6xl mx-auto">
             {[...Array(8)].map((_, i) => (
@@ -130,6 +131,6 @@ export default function Home() {
         <span className="mx-1">·</span>
         <a href="https://instagram.com" className="underline hover:text-yellow-400">Instagram API</a>
       </footer>
-    </>
-    );
+    </div>
+  );
 }
