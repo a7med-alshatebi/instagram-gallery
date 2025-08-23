@@ -36,14 +36,15 @@ export function ModalProvider({ children }: { children: ReactNode }) {
       {children}
       {post && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center px-2 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center px-2 backdrop-blur-sm transition-opacity duration-300 opacity-100 animate-fadeIn"
           style={{ background: "rgba(30,30,30,0.85)" }}
           onClick={closeModal}
         >
             <div
-              className="bg-gray-200 rounded-3xl shadow-2xl w-full max-w-[98vw] sm:max-w-xl md:max-w-2xl mx-auto p-2 sm:p-8 md:p-12 relative border border-gray-400"
+              className="bg-gray-300 rounded-3xl shadow-2xl w-full max-w-[98vw] sm:max-w-xl md:max-w-2xl mx-auto p-2 sm:p-8 md:p-12 relative border border-gray-500 transition-transform duration-300 scale-100 animate-modalPop"
             onClick={e => e.stopPropagation()}
           >
+// Add fadeIn and modalPop keyframes to global CSS if not present
             <button
               onClick={closeModal}
               className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-gray-800 text-gray-100 hover:bg-gray-700 hover:text-white rounded-full w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-lg sm:text-xl shadow-lg focus:outline-none transition-colors duration-200 border border-gray-700"
