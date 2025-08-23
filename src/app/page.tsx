@@ -61,7 +61,7 @@ export default function Home() {
     <button
       aria-label="Refresh Gallery"
       onClick={fetchMedia}
-      className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 bg-gradient-to-tr from-yellow-300 via-pink-400 to-indigo-400 text-white p-2 sm:p-3 rounded-full shadow-2xl hover:scale-110 transition-transform focus:outline-none border-2 border-white animate-spin-slow"
+      className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 bg-gray-800 text-gray-200 p-2 sm:p-3 rounded-full shadow-lg hover:bg-gray-700 hover:text-white transition-transform focus:outline-none border border-gray-700"
     >
       <FiRefreshCw className="text-lg sm:text-xl" />
     </button>

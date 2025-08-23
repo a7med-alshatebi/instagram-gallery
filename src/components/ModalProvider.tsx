@@ -36,7 +36,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
       {post && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center px-2 backdrop-blur-sm"
-          style={{ background: "rgba(220,220,220,0.5)" }}
+          style={{ background: "rgba(30,30,30,0.85)" }}
           onClick={closeModal}
         >
             <div
