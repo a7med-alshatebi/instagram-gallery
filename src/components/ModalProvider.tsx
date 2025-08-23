@@ -41,7 +41,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
           onClick={closeModal}
         >
             <div
-              className="bg-gray-100 rounded-3xl shadow-2xl w-full max-w-[98vw] sm:max-w-xl md:max-w-2xl mx-auto p-2 sm:p-8 md:p-12 relative border border-gray-300"
+              className="bg-gray-200 rounded-3xl shadow-2xl w-full max-w-[98vw] sm:max-w-xl md:max-w-2xl mx-auto p-2 sm:p-8 md:p-12 relative border border-gray-400"
             onClick={e => e.stopPropagation()}
           >
             <button
