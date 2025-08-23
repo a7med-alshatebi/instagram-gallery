@@ -94,9 +94,10 @@ export default function Home() {
                 key={item.id}
                 type="button"
                 onClick={() => openModal(item)}
-                className="group flex flex-col focus:outline-none rounded-2xl bg-gray-800 shadow-md border border-gray-700 overflow-hidden transition-transform duration-200 hover:scale-[1.03] hover:shadow-lg relative max-w-[44vw] sm:max-w-full"
+                className="group flex flex-col focus:outline-none rounded-2xl bg-gray-800 shadow-md border border-gray-700 overflow-hidden transition-transform duration-200 hover:scale-[1.03] hover:shadow-lg relative w-full"
               >
-                <div className="relative w-full aspect-[3/4] sm:aspect-square">
+                <div className="relative w-full h-64 sm:h-auto aspect-[4/5] sm:aspect-square">
+                {/* ...existing code... */}
                   <Image
                     src={item.media_url ? item.media_url : (item.thumbnail_url ? item.thumbnail_url : "")}
                     alt={item.caption || "Instagram media"}
