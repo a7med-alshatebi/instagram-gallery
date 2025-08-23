@@ -56,6 +56,7 @@ export default function Home() {
     <p className="text-base sm:text-lg font-semibold text-center text-gray-400 mb-2">
       Discover &amp; share your Instagram moments in style
     </p>
+  
   </header>
 
     <button
@@ -93,7 +94,7 @@ export default function Home() {
                 key={item.id}
                 type="button"
                 onClick={() => openModal(item)}
-                className="group flex flex-col focus:outline-none rounded-xl sm:rounded-2xl overflow-hidden border border-gray-700 shadow-md bg-gray-800 transition-transform duration-200 hover:scale-[1.03] hover:shadow-lg relative max-w-[44vw] sm:max-w-full"
+                className="group flex flex-col focus:outline-none rounded-2xl bg-gray-800 shadow-md border border-gray-700 overflow-hidden transition-transform duration-200 hover:scale-[1.03] hover:shadow-lg relative max-w-[44vw] sm:max-w-full"
               >
                 <div className="relative w-full aspect-[3/4] sm:aspect-square">
                   <Image
