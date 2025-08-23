@@ -46,13 +46,20 @@ export default function Home() {
 
   return (
   <div className="min-h-screen w-full font-sans flex flex-col items-center justify-center bg-gradient-to-br from-white via-pink-100 to-yellow-100">
-  <header className="flex flex-col items-center mt-8 mb-8 shadow-lg rounded-2xl px-4 py-4 bg-white/80 w-full max-w-2xl mx-auto">
-      <span className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-indigo-400 via-pink-400 to-yellow-300 shadow-lg mb-2 border-2 border-white">
-        <FiInstagram className="text-white text-2xl sm:text-3xl drop-shadow" />
-      </span>
-      <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight mb-2 bg-gradient-to-r from-pink-400 via-indigo-400 to-yellow-300 bg-clip-text text-transparent text-center">Insta Gallery</h1>
-      <p className="text-sm sm:text-base text-indigo-400 font-semibold text-center">Your Instagram showcase</p>
-    </header>
+  <header className="flex flex-col items-center mt-8 mb-10 shadow-2xl rounded-3xl px-6 py-8 bg-gradient-to-br from-pink-50 via-yellow-50 to-indigo-100 w-full max-w-3xl mx-auto border-0 relative">
+    <span className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-pink-400 via-indigo-400 to-yellow-300 shadow-xl mb-4 border-0 animate-spin-slow">
+      <FiInstagram className="text-white text-3xl sm:text-4xl drop-shadow-lg" />
+    </span>
+    <h1 className="text-4xl sm:text-5xl font-black tracking-tight mb-3 bg-gradient-to-r from-pink-500 via-indigo-500 to-yellow-400 bg-clip-text text-transparent text-center drop-shadow-lg">
+      Insta Gallery
+    </h1>
+    <p className="text-base sm:text-lg font-semibold text-center bg-gradient-to-r from-indigo-400 via-pink-400 to-yellow-400 bg-clip-text text-transparent mb-2 drop-shadow">
+      Discover &amp; share your Instagram moments in style
+    </p>
+    <div className="absolute top-4 right-4 hidden sm:block">
+      <span className="px-4 py-1 rounded-full bg-white/70 text-xs font-bold text-pink-500 shadow border border-pink-100">Modern UI</span>
+    </div>
+  </header>
 
     <button
       aria-label="Refresh Gallery"
