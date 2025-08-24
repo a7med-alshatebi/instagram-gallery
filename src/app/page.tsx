@@ -138,7 +138,7 @@ export default function Home() {
       <FiRefreshCw className="text-lg sm:text-xl" />
     </button>
 
-  <main className="w-full px-2 sm:px-0">
+  <main className="w-full px-2 sm:px-0"> 
         {loading ? (
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 w-full max-w-xl sm:max-w-4xl md:max-w-6xl mx-auto justify-items-center">
             {[...Array(8)].map((_, i) => (
