@@ -15,7 +15,15 @@ type InstagramMedia = {
 
 export default function Home() {
   const [media, setMedia] = useState<InstagramMedia[]>([]);
-  const [profile, setProfile] = useState<any>(null);
+  type InstagramProfile = {
+    id: string;
+    username: string;
+    account_type?: string;
+    media_count?: number;
+    profile_picture_url?: string;
+    biography?: string;
+  };
+  const [profile, setProfile] = useState<InstagramProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const { openModal } = useModal();
@@ -89,18 +97,6 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full font-sans flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700">
       <header className="flex flex-col items-center mt-8 mb-10 shadow-none px-6 py-8 w-full max-w-3xl mx-auto border-0 relative bg-transparent">
-        {/* User Profile Info */}
-        {profile && (
-          <div className="flex flex-col items-center justify-center mb-6">
-            <img
-              src={profile.profile_picture_url || "/avatar.png"}
-              alt={profile.username ? `${profile.username} Avatar` : "User Avatar"}
-              className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-gray-700 shadow-lg mb-2 object-cover bg-gray-700"
-            />
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-200 mb-1">@{profile.username || "username"}</h2>
-            <p className="text-sm sm:text-base text-gray-400 text-center max-w-xs">{profile.biography || "No bio available."}</p>
-          </div>
-        )}
         <span className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gray-800 shadow-lg mb-4 border-0">
           <FiInstagram className="text-gray-300 text-3xl sm:text-4xl" />
         </span>
@@ -110,6 +106,18 @@ export default function Home() {
         <p className="text-base sm:text-lg font-semibold text-center text-gray-400 mb-2">
           Discover &amp; share your Instagram moments in style
         </p>
+        {/* User Profile Info */}
+        {profile && (
+          <div className="flex flex-col items-center justify-center mt-6">
+            <img
+              src={profile.profile_picture_url || "/avatar.png"}
+              alt={profile.username ? `${profile.username} Avatar` : "User Avatar"}
+              className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-gray-700 shadow-lg mb-2 object-cover bg-gray-700"
+            />
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-200 mb-1">@{profile.username || "username"}</h2>
+            <p className="text-sm sm:text-base text-gray-400 text-center max-w-xs">{profile.biography || "No bio available."}</p>
+          </div>
+        )}
       </header>
 
     <button

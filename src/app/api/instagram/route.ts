@@ -1,6 +1,6 @@
 import type { NextRequest } from 'next/server';
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   const token = process.env.INSTAGRAM_ACCESS_TOKEN;
   if (!token) {
   return new Response(JSON.stringify({ error: 'Missing Instagram access token' }), { status: 400 });
@@ -17,7 +17,15 @@ export async function GET(req: NextRequest) {
     permalink: string;
   };
   let allMedia: InstagramMedia[] = [];
-  let profile: any = null;
+  type InstagramProfile = {
+    id: string;
+    username: string;
+    account_type?: string;
+    media_count?: number;
+    profile_picture_url?: string;
+    biography?: string;
+  };
+  let profile: InstagramProfile | null = null;
   let nextUrl = baseUrl;
   try {
     // Fetch profile info
