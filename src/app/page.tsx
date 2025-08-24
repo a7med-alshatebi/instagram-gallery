@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { FiHeart, FiDownload, FiShare2 } from "react-icons/fi";
 import { FiRefreshCw, FiInstagram } from "react-icons/fi";
 import { useModal } from "../components/ModalProvider";
 import Image from "next/image";
@@ -17,6 +18,45 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const { openModal } = useModal();
+  const [favorites, setFavorites] = useState<string[]>(() => {
+    if (typeof window !== "undefined") {
+      const favs = localStorage.getItem("favorites");
+      return favs ? JSON.parse(favs) : [];
+    }
+    return [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
+
+  const toggleFavorite = (id: string) => {
+    setFavorites((prev) =>
+      prev.includes(id) ? prev.filter((fid) => fid !== id) : [...prev, id]
+    );
+  };
+
+  const downloadMedia = (url: string) => {
+    fetch(url)
+      .then((res) => res.blob())
+      .then((blob) => {
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "instagram-media.jpg";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+  };
+
+  const sharePost = (permalink: string) => {
+    if (navigator.share) {
+      navigator.share({ url: permalink });
+    } else {
+      navigator.clipboard.writeText(permalink);
+      alert("Link copied to clipboard!");
+    }
+  };
 
   const fetchMedia = () => {
     setLoading(true);
@@ -90,14 +130,11 @@ export default function Home() {
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 w-full max-w-xl sm:max-w-4xl md:max-w-6xl mx-auto justify-items-center">
             {media.map((item) => (
-              <button
+              <div
                 key={item.id}
-                type="button"
-                onClick={() => openModal(item)}
                 className="group flex flex-col focus:outline-none rounded-2xl bg-gray-800 shadow-md border border-gray-700 overflow-hidden transition-transform duration-200 hover:scale-[1.03] hover:shadow-lg relative w-full"
               >
-                <div className="relative w-full h-64 sm:h-auto aspect-[4/5] sm:aspect-square">
-                {/* ...existing code... */}
+                <div className="relative w-full h-64 sm:h-auto aspect-[4/5] sm:aspect-square cursor-pointer" onClick={() => openModal(item)}>
                   <Image
                     src={item.media_url ? item.media_url : (item.thumbnail_url ? item.thumbnail_url : "")}
                     alt={item.caption || "Instagram media"}
@@ -111,12 +148,35 @@ export default function Home() {
                     <span className="sm:hidden">👆</span>
                   </div>
                 </div>
+                <div className="flex items-center justify-between w-full px-2 py-2 gap-2">
+                  <button
+                    aria-label={favorites.includes(item.id) ? "Unfavorite" : "Favorite"}
+                    onClick={() => toggleFavorite(item.id)}
+                    className={`flex items-center justify-center rounded-full p-2 transition-colors duration-200 border border-gray-700 shadow ${favorites.includes(item.id) ? 'bg-rose-600 text-white' : 'bg-gray-900 text-gray-300 hover:bg-rose-600 hover:text-white'} w-9 h-9 sm:w-10 sm:h-10`}
+                  >
+                    <FiHeart className="text-lg sm:text-xl" />
+                  </button>
+                  <button
+                    aria-label="Download"
+                    onClick={() => downloadMedia(item.media_url)}
+                    className="flex items-center justify-center rounded-full p-2 transition-colors duration-200 border border-gray-700 shadow bg-gray-900 text-gray-300 hover:bg-blue-600 hover:text-white w-9 h-9 sm:w-10 sm:h-10"
+                  >
+                    <FiDownload className="text-lg sm:text-xl" />
+                  </button>
+                  <button
+                    aria-label="Share"
+                    onClick={() => sharePost(item.permalink)}
+                    className="flex items-center justify-center rounded-full p-2 transition-colors duration-200 border border-gray-700 shadow bg-gray-900 text-gray-300 hover:bg-green-600 hover:text-white w-9 h-9 sm:w-10 sm:h-10"
+                  >
+                    <FiShare2 className="text-lg sm:text-xl" />
+                  </button>
+                </div>
                 {item.caption && (
                   <div className="px-2 py-1 text-xs sm:text-base text-gray-300 font-semibold truncate bg-gray-900 rounded-b-xl sm:rounded-b-2xl border-t border-gray-700 mt-1">
                     {item.caption}
                   </div>
                 )}
-              </button>
+              </div>
             ))}
           </div>
         )}
