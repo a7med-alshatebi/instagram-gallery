@@ -43,7 +43,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
         >
           <FadeInUp>
             <div
-              className="bg-gray-300 rounded-3xl shadow-2xl w-full max-w-[98vw] sm:max-w-xl md:max-w-2xl mx-auto p-2 sm:p-8 md:p-12 relative border border-gray-500"
+              className="bg-gray-300 rounded-3xl shadow-2xl w-full max-w-[98vw] mx-auto p-2 relative border border-gray-500"
               onClick={e => e.stopPropagation()}
             >
               <button
