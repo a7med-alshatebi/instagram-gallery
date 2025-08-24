@@ -114,7 +114,14 @@ export default function Home() {
               alt={profile.username ? `${profile.username} Avatar` : "User Avatar"}
               className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-gray-700 shadow-lg mb-2 object-cover bg-gray-700"
             />
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-200 mb-1">@{profile.username || "username"}</h2>
+            <a
+              href={`https://instagram.com/${profile.username}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xl sm:text-2xl font-bold text-indigo-400 hover:text-indigo-300 transition-colors duration-200 underline underline-offset-4 mb-1"
+            >
+              @{profile.username || "username"}
+            </a>
             <p className="text-sm sm:text-base text-gray-400 text-center max-w-xs">{profile.biography || "No bio available."}</p>
           </div>
         )}
