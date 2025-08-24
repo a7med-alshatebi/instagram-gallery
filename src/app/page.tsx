@@ -109,20 +109,27 @@ export default function Home() {
         {/* User Profile Info */}
         {profile && (
           <div className="flex flex-col items-center justify-center mt-6">
-            <img
-              src={profile.profile_picture_url || "/avatar.png"}
-              alt={profile.username ? `${profile.username} Avatar` : "User Avatar"}
-              className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-gray-700 shadow-lg mb-2 object-cover bg-gray-700"
-            />
-            <a
-              href={`https://instagram.com/${profile.username}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xl sm:text-2xl font-bold text-indigo-400 hover:text-indigo-300 transition-colors duration-200 underline underline-offset-4 mb-1"
-            >
-              @{profile.username || "username"}
-            </a>
-            <p className="text-sm sm:text-base text-gray-400 text-center max-w-xs">{profile.biography || "No bio available."}</p>
+            <div className="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-[2px] rounded-2xl shadow-xl w-full max-w-xs sm:max-w-sm mx-auto">
+              <div className="bg-gray-900 rounded-2xl p-5 flex flex-col items-center transition-transform duration-200 hover:scale-[1.03]">
+                <div className="relative">
+                  <img
+                    src={profile.profile_picture_url || "/avatar.png"}
+                    alt={profile.username ? `${profile.username} Avatar` : "User Avatar"}
+                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-indigo-400 shadow-lg object-cover bg-gray-700 mb-2"
+                  />
+                  <span className="absolute bottom-2 right-2 bg-indigo-500 text-white text-xs px-2 py-1 rounded-full shadow">Profile</span>
+                </div>
+                <a
+                  href={`https://instagram.com/${profile.username}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl sm:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 hover:from-pink-400 hover:to-indigo-400 transition-all duration-200 underline underline-offset-4 mb-1"
+                >
+                  @{profile.username || "username"}
+                </a>
+                <p className="text-sm sm:text-base text-gray-300 text-center max-w-xs mt-1">{profile.biography || "No bio available."}</p>
+              </div>
+            </div>
           </div>
         )}
       </header>
