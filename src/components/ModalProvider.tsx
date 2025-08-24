@@ -43,12 +43,12 @@ export function ModalProvider({ children }: { children: ReactNode }) {
         >
           <FadeInUp>
             <div
-              className="bg-gray-300 rounded-3xl shadow-2xl w-full max-w-[98vw] sm:max-w-xl md:max-w-2xl mx-auto p-2 sm:p-8 md:p-12 relative border border-gray-500"
+              className="bg-gray-300 rounded-3xl shadow-2xl w-full max-w-[99vw] mx-auto p-6 sm:p-8 relative border border-gray-500"
               onClick={e => e.stopPropagation()}
             >
               <button
                 onClick={closeModal}
-                className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-gray-800 text-gray-100 hover:bg-gray-700 hover:text-white rounded-full w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-lg sm:text-xl shadow-lg focus:outline-none transition-colors duration-200 border border-gray-700"
+                className="hidden sm:flex absolute top-2 right-2 sm:top-3 sm:right-3 bg-gray-800 text-gray-100 hover:bg-gray-700 hover:text-white rounded-full w-7 h-7 sm:w-8 sm:h-8 items-center justify-center text-lg sm:text-xl shadow-lg focus:outline-none transition-colors duration-200 border border-gray-700"
                 aria-label="Close"
               >
                 <span className="block leading-none">×</span>
