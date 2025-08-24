@@ -48,7 +48,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
             >
               <button
                 onClick={closeModal}
-                className="hidden sm:flex absolute top-2 right-2 sm:top-3 sm:right-3 bg-gray-800 text-gray-100 hover:bg-gray-700 hover:text-white rounded-full w-7 h-7 sm:w-8 sm:h-8 items-center justify-center text-lg sm:text-xl shadow-lg focus:outline-none transition-colors duration-200 border border-gray-700"
+                className="hidden sm:flex absolute top-2 right-2 sm:top-3 sm:right-3 bg-gray-800 text-gray-100 hover:bg-gray-700 hover:text-white rounded-full w-7 h-7 sm:w-6 sm:h-6 items-center justify-center text-lg sm:text-base shadow-lg focus:outline-none transition-colors duration-200 border border-gray-700"
                 aria-label="Close"
               >
                 <span className="block leading-none">×</span>
