@@ -124,7 +124,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xl sm:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 hover:from-pink-400 hover:to-indigo-400 transition-all duration-200 underline underline-offset-4 mb-1"
-                >
+                > 
                   @{profile.username || "username"}
                 </a>
                 <p className="text-sm sm:text-base text-gray-300 text-center max-w-xs mt-1">{profile.biography || "No bio available."}</p>
